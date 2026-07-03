@@ -1,0 +1,20 @@
+workflows:
+  react-web-build:
+    name: React Vite Build
+
+    instance_type: mac_mini_m2
+
+    environment:
+      node: 20
+
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+
+      - name: Build app
+        script: |
+          npm run build
+
+    artifacts:
+      - dist/**
