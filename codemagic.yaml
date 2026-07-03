@@ -1,20 +1,48 @@
 workflows:
-  react-web-build:
-    name: React Vite Build
+  ios-build:
+    name: iOS Build
 
     instance_type: mac_mini_m2
 
     environment:
       node: 20
+      xcode: latest
 
     scripts:
       - name: Install dependencies
         script: |
+          rm -f package-lock.json
           npm install
 
-      - name: Build app
+      - name: Build
         script: |
           npm run build
 
+      - name: Create iOS project
+        script: |
+          if [ ! -d ios ]; then
+            npx cap add ios
+          fi
+
+      - name: Sync Capacitor
+        script: |
+          npx cap sync ios
+
+      - name: Install Pods
+        script: |
+          cd ios/App
+          pod install
+          cd ../..
+
+      - name: Build App
+        script: |
+          xcodebuild \
+            -workspace ios/App/App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            CODE_SIGNING_ALLOWED=NO
+
     artifacts:
       - dist/**
+      - ios/**
