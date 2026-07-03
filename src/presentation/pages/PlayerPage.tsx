@@ -1,11 +1,45 @@
 import React from 'react'
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonProgressBar } from '@ionic/react'
-import { play, pause, skipForward, skipBack, shuffle, repeat } from 'ionicons/icons'
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButton,
+  IonIcon,
+  IonProgressBar
+} from '@ionic/react'
+
+import {
+  play,
+  pause,
+  playSkipForward,
+  playSkipBack,
+  shuffle,
+  repeat
+} from 'ionicons/icons'
+
 import { usePlayerStore } from '../hooks/usePlayerStore'
 import './PlayerPage.css'
 
 export const PlayerPage: React.FC = () => {
-  const { currentSong, isPlaying, currentTime, duration, shuffle, repeat, volume, play, pause: pausePlay, next, previous, toggleShuffle, toggleRepeat, setVolume, seek } = usePlayerStore()
+  const {
+    currentSong,
+    isPlaying,
+    currentTime,
+    duration,
+    shuffle,
+    repeat,
+    volume,
+    play,
+    pause: pausePlay,
+    next,
+    previous,
+    toggleShuffle,
+    toggleRepeat,
+    setVolume,
+    seek
+  } = usePlayerStore()
 
   const formatTime = (seconds: number) => {
     if (!seconds || isNaN(seconds)) return '0:00'
@@ -27,13 +61,17 @@ export const PlayerPage: React.FC = () => {
           <IonTitle>Now Playing</IonTitle>
         </IonToolbar>
       </IonHeader>
+
       <IonContent className="player-content">
         <div className="player-container">
           {currentSong ? (
             <>
               <div className="album-artwork">
                 {currentSong.albumArtworkData ? (
-                  <img src={currentSong.albumArtworkData} alt={currentSong.album} />
+                  <img
+                    src={currentSong.albumArtworkData}
+                    alt={currentSong.album}
+                  />
                 ) : (
                   <div className="artwork-placeholder">♪</div>
                 )}
@@ -46,37 +84,70 @@ export const PlayerPage: React.FC = () => {
               </div>
 
               <div className="progress-section">
-                <div className="progress-time">{formatTime(currentTime)}</div>
-                <div className="progress-bar-container" onClick={handleProgressClick}>
-                  <IonProgressBar value={duration ? currentTime / duration : 0} className="progress-bar" />
+                <div className="progress-time">
+                  {formatTime(currentTime)}
                 </div>
-                <div className="progress-time">{formatTime(duration - currentTime)}</div>
+
+                <div
+                  className="progress-bar-container"
+                  onClick={handleProgressClick}
+                >
+                  <IonProgressBar
+                    value={duration ? currentTime / duration : 0}
+                    className="progress-bar"
+                  />
+                </div>
+
+                <div className="progress-time">
+                  {formatTime(duration - currentTime)}
+                </div>
               </div>
 
               <div className="player-controls">
-                <IonButton fill="clear" size="large" onClick={toggleShuffle} className={shuffle ? 'active' : ''}>
+                <IonButton
+                  fill="clear"
+                  size="large"
+                  onClick={toggleShuffle}
+                  className={shuffle ? 'active' : ''}
+                >
                   <IonIcon icon={shuffle} slot="icon-only" />
                 </IonButton>
 
                 <IonButton fill="clear" size="large" onClick={previous}>
-                  <IonIcon icon={skipBack} slot="icon-only" />
+                  <IonIcon icon={playSkipBack} slot="icon-only" />
                 </IonButton>
 
-                <IonButton fill="solid" size="large" onClick={() => (isPlaying ? pausePlay() : play(currentSong))} className="play-btn">
-                  <IonIcon icon={isPlaying ? pause : play} slot="icon-only" />
+                <IonButton
+                  fill="solid"
+                  size="large"
+                  onClick={() =>
+                    isPlaying ? pausePlay() : play(currentSong)
+                  }
+                  className="play-btn"
+                >
+                  <IonIcon
+                    icon={isPlaying ? pause : play}
+                    slot="icon-only"
+                  />
                 </IonButton>
 
                 <IonButton fill="clear" size="large" onClick={next}>
-                  <IonIcon icon={skipForward} slot="icon-only" />
+                  <IonIcon icon={playSkipForward} slot="icon-only" />
                 </IonButton>
 
-                <IonButton fill="clear" size="large" onClick={toggleRepeat} className={repeat !== 'off' ? 'active' : ''}>
+                <IonButton
+                  fill="clear"
+                  size="large"
+                  onClick={toggleRepeat}
+                  className={repeat !== 'off' ? 'active' : ''}
+                >
                   <IonIcon icon={repeat} slot="icon-only" />
                 </IonButton>
               </div>
 
               <div className="volume-section">
                 <label>Volume: {volume}%</label>
+
                 <input
                   type="range"
                   min="0"
