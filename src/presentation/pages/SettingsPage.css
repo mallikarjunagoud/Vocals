@@ -1,0 +1,12 @@
+.settings-header { background-color: var(--color-bg-secondary) !important; --border-color: var(--color-border) !important; }
+.settings-content { --background: var(--color-bg-primary) !important; }
+.settings-list { --background: transparent; }
+.settings-section-header { --background: transparent; --border-color: var(--color-border); --padding-start: 0; --padding-end: 0; margin-top: var(--spacing-lg); }
+.settings-section-header h2 { font-size: 1.125rem; font-weight: 600; color: var(--color-accent); margin: 0; }
+.settings-list ion-item { --background: transparent; --border-color: var(--color-border); --color: var(--color-text-primary); }
+.settings-list ion-label { color: var(--color-text-primary) !important; }
+.import-item { --padding-start: 0; --padding-end: 0; }
+.import-item ion-button { --color: var(--color-accent); }
+.formats-list { --padding-start: 0; --padding-end: 0; }
+.formats-list p { color: var(--color-text-secondary); margin: 0; font-size: 0.875rem; }
+ion-toggle { --background-checked: var(--color-accent); }

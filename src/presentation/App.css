@@ -1,0 +1,3 @@
+.app-tab-bar { background-color: var(--color-bg-secondary) !important; border-top: 1px solid var(--color-border) !important; --background: var(--color-bg-secondary); --border-color: var(--color-border); }
+.tab-button { --color: var(--color-text-secondary) !important; --color-selected: var(--color-accent) !important; --padding-bottom: 0.5rem !important; --padding-top: 0.5rem !important; transition: color var(--transition-base); }
+.tab-button:hover { --color: var(--color-accent) !important; }

@@ -1,0 +1,24 @@
+.player-header { background-color: var(--color-bg-secondary) !important; --border-color: var(--color-border) !important; }
+.player-content { --background: var(--color-bg-primary) !important; display: flex; justify-content: center; align-items: center; }
+.player-container { width: 100%; max-width: 600px; padding: var(--spacing-lg); display: flex; flex-direction: column; align-items: center; gap: var(--spacing-xl); }
+.album-artwork { width: 280px; height: 280px; border-radius: var(--radius-2xl); background: var(--color-bg-secondary); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2); animation: slideUp 0.5s ease-out; }
+.album-artwork img { width: 100%; height: 100%; object-fit: cover; }
+.artwork-placeholder { font-size: 5rem; color: var(--color-accent); opacity: 0.5; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.song-info { text-align: center; width: 100%; }
+.song-title { font-size: 1.75rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--spacing-sm); line-height: 1.2; }
+.song-artist { font-size: 1.125rem; color: var(--color-accent); margin-bottom: var(--spacing-xs); }
+.song-album { font-size: 1rem; color: var(--color-text-secondary); margin: 0; }
+.progress-section { width: 100%; display: flex; align-items: center; gap: var(--spacing-sm); padding: 0 var(--spacing-md); }
+.progress-time { font-size: 0.875rem; color: var(--color-text-secondary); min-width: 40px; text-align: center; }
+.progress-bar-container { flex: 1; cursor: pointer; padding: var(--spacing-md) 0; }
+.progress-bar { --progress-background: var(--color-accent); --buffer-background: var(--color-bg-tertiary); height: 4px; }
+.player-controls { display: flex; justify-content: center; align-items: center; gap: var(--spacing-lg); width: 100%; }
+.player-controls ion-button { --color: var(--color-text-secondary); }
+.player-controls ion-button.active { --color: var(--color-accent); }
+.play-btn { --background: var(--color-accent) !important; --color: white !important; width: 72px; height: 72px; border-radius: 50%; box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4); }
+.volume-section { width: 100%; padding: 0 var(--spacing-md); display: flex; flex-direction: column; gap: var(--spacing-md); }
+.volume-section label { font-size: 0.875rem; color: var(--color-text-secondary); }
+.volume-slider { width: 100%; height: 4px; border-radius: 2px; background: var(--color-bg-tertiary); outline: none; -webkit-appearance: none; appearance: none; }
+.volume-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--color-accent); cursor: pointer; }
+.empty-player { text-align: center; padding: var(--spacing-2xl); color: var(--color-text-secondary); }

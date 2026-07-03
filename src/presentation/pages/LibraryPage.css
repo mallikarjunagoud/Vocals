@@ -1,0 +1,21 @@
+.library-header { background-color: var(--color-bg-secondary) !important; --border-color: var(--color-border) !important; }
+.search-toolbar { --background: var(--color-bg-secondary) !important; --border-color: var(--color-border) !important; --padding-bottom: 0 !important; --padding-top: 0 !important; }
+.search-toolbar ion-searchbar { --background: var(--color-bg-tertiary) !important; --color: var(--color-text-primary) !important; --placeholder-color: var(--color-text-secondary) !important; }
+.segment-toolbar { --background: var(--color-bg-secondary) !important; --border-color: var(--color-border) !important; }
+.segment-toolbar ion-segment { width: 100%; --background: transparent; }
+.segment-toolbar ion-segment-button { --color: var(--color-text-secondary); --color-checked: var(--color-accent); --indicator-color: var(--color-accent); }
+.library-content { --background: var(--color-bg-primary) !important; }
+.songs-list { --background: transparent; }
+.song-item { --background: transparent; --border-color: var(--color-border); padding: var(--spacing-md) 0; }
+.song-item-content { display: flex; justify-content: space-between; align-items: center; width: 100%; gap: var(--spacing-md); }
+.song-item-info { flex: 1; min-width: 0; }
+.song-item-info h3 { margin: 0; font-size: 1rem; font-weight: 600; color: var(--color-text-primary); overflow: hidden; text-overflow: ellipsis; }
+.song-item-info p { margin: var(--spacing-xs) 0 0 0; font-size: 0.875rem; color: var(--color-text-secondary); }
+.song-item-actions { display: flex; gap: var(--spacing-sm); }
+.artists-grid, .albums-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--spacing-lg); padding: var(--spacing-lg); }
+.artist-card, .album-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-lg); cursor: pointer; transition: transform var(--transition-base); }
+.artist-card:hover, .album-card:hover { transform: translateY(-4px); }
+.artist-placeholder, .album-placeholder { width: 100px; height: 100px; border-radius: var(--radius-lg); background: var(--color-bg-tertiary); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--color-accent); opacity: 0.6; margin-bottom: var(--spacing-md); }
+.album-card img { width: 100px; height: 100px; border-radius: var(--radius-lg); object-fit: cover; margin-bottom: var(--spacing-md); }
+.artist-card h3, .album-card h3 { margin: 0; font-size: 1rem; font-weight: 600; color: var(--color-text-primary); }
+.empty-state { padding: var(--spacing-2xl); text-align: center; color: var(--color-text-secondary); }
